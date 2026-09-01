@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://colt255programmer.github.io/salesforce-component-highlighter/sitemap.xml

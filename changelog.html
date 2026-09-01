@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog — Salesforce Component Highlighter</title>
+<meta name="description" content="Release notes for the Salesforce Component Highlighter Chrome extension for Salesforce.">
+<link rel="canonical" href="https://colt255programmer.github.io/salesforce-component-highlighter/changelog.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Changelog — Salesforce Component Highlighter">
+<meta property="og:description" content="Release notes for the Salesforce component highlighting extension.">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/mark-128.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/mark-48.png">
+<link rel="apple-touch-icon" href="assets/mark-128.png">
+<meta property="og:image" content="https://colt255programmer.github.io/salesforce-component-highlighter/assets/lockup-128.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/mark-48.png" alt="" width="26" height="26"> Salesforce Component Highlighter</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html" aria-current="page">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:24px">Changelog</h2>
+
+    <div class="release">
+      <div class="release-head">
+        <h2>1.1.0</h2>
+        <span class="tag current">Current</span>
+        <span class="release-date">Pending review</span>
+      </div>
+      <p style="color:var(--fg-muted);margin-bottom:12px">A reliability and performance release. No new surface, but most of the internals were rebuilt.</p>
+      <ul>
+        <li><strong>Fixed: highlighting now actually persists</strong> across navigation, record changes and console subtabs. Saved state was being written to a storage area the page-side script could not read back, so it silently reset every time.</li>
+        <li><strong>Fixed: the page is no longer blocked.</strong> Highlight overlays used to sit on top of components and swallow clicks, making every highlighted component unusable. Overlays are now a pass-through layer.</li>
+        <li><strong>Fixed: Aura highlighting no longer modifies the page.</strong> It previously wrote inline styles into Salesforce's own elements and injected label nodes as their children, which could disturb Aura's rendering. Aura now uses the same external overlay approach as LWC.</li>
+        <li><strong>Fixed: keyboard shortcuts.</strong> The Aura shortcut was listed as one key combination but listened for another, and the LWC shortcut was handled twice, so it could cancel itself out. Shortcuts now have one owner, and hover-only labels and snapshot export got their own entries.</li>
+        <li><strong>Fixed: right-click menu actions</strong> could fail to reach the page.</li>
+        <li><strong>Fixed: every popup toggle sent its command twice.</strong></li>
+        <li><strong>Fixed: Aura components written as <code>c:myComponent</code></strong> were not being detected.</li>
+        <li><strong>Much lower CPU use.</strong> The extension used to reposition every overlay on every single animation frame — around 60 times a second, forever, even on a page where nothing was moving. Position updates are now driven by scroll, resize and DOM changes, so an idle tab stays idle. Four overlapping DOM observers and a repeating background timer were collapsed into one.</li>
+        <li><strong>Faster Aura detection</strong> on large pages: the old scan re-walked the whole page once per candidate component.</li>
+        <li><strong>Narrower permissions.</strong> Two overly broad patterns meant Chrome had to warn that the extension could read data on <em>all</em> websites. It now requests Salesforce domains only; custom Experience Cloud domains can be granted individually. Setup and enhanced-domain hosts were added.</li>
+        <li>Rebuilt popup, and the version number shown in it is now read from the extension itself.</li>
+        <li><strong>Renamed</strong> to <em>Salesforce Component Highlighter &mdash; LWC &amp; Aura</em>, so the listing is findable by the terms people actually search. Same extension, same developer, nothing to reinstall.</li>
+        <li><strong>New icon.</strong> The wordmark now reads &ldquo;Salesforce Component Highlighter&rdquo;, and the toolbar icon is the highlighter mark on its own &mdash; the old one tried to fit two lines of text into 16 pixels, which no icon can survive.</li>
+      </ul>
+    </div>
+
+    <div class="release">
+      <div class="release-head">
+        <h2>1.0.0</h2>
+        <span class="tag">Initial release</span>
+        <span class="release-date">16 November 2025</span>
+      </div>
+      <ul>
+        <li>Highlight custom Lightning Web Components and Aura components on Salesforce pages.</li>
+        <li>Support for Lightning Experience, Experience Cloud and Classic, in production and sandbox.</li>
+        <li>Customizable highlight colors, hover labels, component counts.</li>
+        <li>Keyboard shortcuts and right-click menu actions.</li>
+        <li>JSON snapshot export of detected components.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Built by <a href="https://in.linkedin.com/in/nikhil-kumar-033b471b2" target="_blank" rel="noopener">Nikhil Kumar</a></span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="privacy-policy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

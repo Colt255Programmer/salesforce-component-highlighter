@@ -1,69 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Salesforce Component Highlighter</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1 { color: #0070d2; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Salesforce Component Highlighter</title>
+<meta name="description" content="Privacy policy for the Salesforce Component Highlighter Chrome extension for LWC and Aura. No data collection, no network requests, no analytics.">
+<link rel="canonical" href="https://colt255programmer.github.io/salesforce-component-highlighter/privacy-policy.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Privacy Policy — Salesforce Component Highlighter">
+<meta property="og:description" content="No data collection, no network requests, no analytics.">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/mark-128.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/mark-48.png">
+<link rel="apple-touch-icon" href="assets/mark-128.png">
+<meta property="og:image" content="https://colt255programmer.github.io/salesforce-component-highlighter/assets/lockup-128.png">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p><strong>Last updated:</strong> November 2025</p>
 
-  <p>
-    Salesforce Component Highlighter is a Chrome extension designed to help Salesforce developers
-    and administrators visually identify Lightning Web Components (LWC) and Aura components
-    on Salesforce and Experience Cloud pages.
-  </p>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/mark-48.png" alt="" width="26" height="26"> Salesforce Component Highlighter</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</header>
 
-  <h2>Information Collection</h2>
-  <p>
-    This extension does <strong>not collect, store, transmit, or share</strong> any personally
-    identifiable information, browsing history, or user data. All operations take place
-    entirely within your local browser session.
-  </p>
+<section>
+  <div class="wrap prose">
+    <h2>Privacy Policy</h2>
+    <p style="color:var(--fg-muted)">
+      Applies to the Chrome extension <strong>Salesforce Component Highlighter — LWC &amp; Aura</strong>
+      (extension ID <code>ihcejjlpoaomlkklakoeohdmkbalhbel</code>).<br>
+      Last updated: 31 August 2026.
+    </p>
 
-  <h2>Permissions and Usage</h2>
-  <ul>
-    <li><!--<strong>activeTab:</strong>--> Used to inject highlighting scripts into the active Salesforce page.</li>
-    <li><!--<strong>scripting:</strong>--> Allows the extension to highlight components within the Salesforce DOM.</li>
-    <li><!--<strong>storage:</strong>--> Saves user preferences (like color and toggle state) locally.</li>
-    <li><!--<strong>contextMenus:</strong>--> Enables right-click quick actions.</li>
-    <li><!--<strong>Host permissions:</strong>--> Restricted to Salesforce domains only.</li>
-  </ul>
+    <div class="note">
+      <strong>In short:</strong> this extension collects nothing, sends nothing, and has no server. It makes no network requests of any kind.
+    </div>
 
-  <h2>Data Retention</h2>
-  <p>
-    No personal data or page content is transmitted outside the browser. The extension only reads
-    Salesforce DOM elements temporarily to identify LWC and Aura components and does not persist
-    or transmit this information anywhere.
-  </p>
+    <h3>Data the extension collects</h3>
+    <p>None. No personal information, no page content, no record data, no field values, no credentials, no session tokens, no browsing history, and no analytics or telemetry of any kind are collected, stored on any server, transmitted, sold or shared.</p>
 
-  <h2>Third Parties</h2>
-  <p>
-    This extension does not use any third-party analytics, advertising networks,
-    or external services.
-  </p>
+    <h3>What the extension reads</h3>
+    <p>To draw an outline around a component, the extension inspects the <em>structure</em> of the page you are viewing: element tag names, a small set of Aura identifying attributes, and each element's position and size on screen. This happens entirely inside your browser, in memory, while the page is open. Text you see on the page, values in fields, and record data are never read for any purpose.</p>
 
-  <h2>Changes to This Policy</h2>
-  <p>
-    Any updates to this Privacy Policy will be reflected on this page.
-  </p>
+    <h3>What is saved, and where</h3>
+    <p>Two things are saved, both using Chrome's own extension storage. Neither ever leaves your browser or your Google account:</p>
+    <ul>
+      <li><strong>Your chosen highlight colors</strong> — two color values, saved to Chrome's synced extension storage so they follow your Chrome profile across your own signed-in devices.</li>
+      <li><strong>Whether each highlight layer is currently on or off</strong> — simple on/off values, saved to Chrome's session storage and discarded when you close the browser.</li>
+    </ul>
+    <p>You can erase both at any time by removing the extension.</p>
 
-  <h2>Contact</h2>
-  <p>
-    For questions or feedback, please contact the developer via
-    <a href="https://in.linkedin.com/in/nikhil-kumar-033b471b2" target="_blank">LinkedIn</a>.
-  </p>
+    <h3>Snapshot exports</h3>
+    <p>The snapshot feature builds a JSON file listing the component names detected on the current page, together with that page's URL, and saves it to your computer as an ordinary download. The file is generated locally and is never uploaded anywhere. Where it goes afterwards is entirely up to you.</p>
+
+    <h3>Where the extension runs</h3>
+    <p>The extension requests access to Salesforce domains only — <code>force.com</code>, <code>salesforce.com</code>, <code>salesforce-setup.com</code>, <code>my.site.com</code>, <code>salesforce-experience.com</code> and <code>salesforce-sites.com</code>. It does not run on any other website.</p>
+    <p>If your Experience Cloud site is served from a custom domain, you may optionally grant access to that one domain yourself from <code>chrome://extensions</code>. This is always your choice, applies only to the domain you name, and can be revoked the same way.</p>
+
+    <h3>Third parties</h3>
+    <p>There are none. The extension bundles no analytics, no advertising, no crash reporting, no external scripts and no third-party libraries. It contacts no server, including any server of the developer's.</p>
+
+    <h3>Permissions, and why each is needed</h3>
+    <div class="table-scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Permission</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><code>activeTab</code></td><td class="wrap-cell">Act on the tab you are currently looking at when you click the icon</td></tr>
+          <tr><td><code>scripting</code></td><td class="wrap-cell">Draw the highlight overlay onto the page</td></tr>
+          <tr><td><code>storage</code></td><td class="wrap-cell">Remember your colors and whether highlighting is on</td></tr>
+          <tr><td><code>contextMenus</code></td><td class="wrap-cell">Provide the right-click menu toggles</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Children</h3>
+    <p>This is a developer tool and is not directed at children. Since it collects no data, it collects no data from children either.</p>
+
+    <h3>Changes to this policy</h3>
+    <p>If a future version of the extension ever changes what it reads or stores, this page will be updated before that version is published, and the change will be described in the <a href="changelog.html">changelog</a>. Planned optional AI features are intended to run on your own device; if any option is ever added that would send data anywhere, it will be off by default and will state plainly what it sends before you turn it on.</p>
+
+    <h3>Contact</h3>
+    <p>Questions about this policy, or about anything the extension does: <a href="mailto:bikerthatcodes@gmail.com">bikerthatcodes@gmail.com</a>.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Built by <a href="https://in.linkedin.com/in/nikhil-kumar-033b471b2" target="_blank" rel="noopener">Nikhil Kumar</a></span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs — Salesforce Component Highlighter</title>
+<meta name="description" content="How the Salesforce Component Highlighter Chrome extension detects Salesforce components, the full shortcut list, supported domains, and troubleshooting.">
+<link rel="canonical" href="https://colt255programmer.github.io/salesforce-component-highlighter/docs.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docs — Salesforce Component Highlighter">
+<meta property="og:description" content="Shortcuts, supported domains, how detection works, and troubleshooting.">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/mark-128.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/mark-48.png">
+<link rel="apple-touch-icon" href="assets/mark-128.png">
+<meta property="og:image" content="https://colt255programmer.github.io/salesforce-component-highlighter/assets/lockup-128.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/mark-48.png" alt="" width="26" height="26"> Salesforce Component Highlighter</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="docs.html" aria-current="page">Docs</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Getting started</h2>
+    <div class="prose">
+      <ol>
+        <li>Install from the <a href="https://chromewebstore.google.com/detail/ihcejjlpoaomlkklakoeohdmkbalhbel" target="_blank" rel="noopener">Chrome Web Store</a>.</li>
+        <li>Open any Salesforce page — a record, an app, a Lightning console, or an Experience Cloud site.</li>
+        <li>Click the extension icon and flip <strong>Highlight LWC</strong> or <strong>Highlight Aura</strong>.</li>
+      </ol>
+      <p>Highlights stay on as you navigate. Use <strong>Clear all highlights</strong> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> to turn everything off.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Shortcuts</h2>
+    <p class="lead">Remap any of these at <code>chrome://extensions/shortcuts</code>.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Action</th><th>Default</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Toggle LWC highlights</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></td><td class="wrap-cell">Custom <code>c-*</code> components</td></tr>
+          <tr><td>Toggle Aura highlights</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></td><td class="wrap-cell">Custom Aura components</td></tr>
+          <tr><td>Clear all highlights</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd></td><td class="wrap-cell">Turns both layers off</td></tr>
+          <tr><td>Hover-only labels</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></td><td class="wrap-cell">Show a label only for the component under the cursor</td></tr>
+          <tr><td>Export snapshot</td><td>Unassigned</td><td class="wrap-cell">Assign your own key, or use the popup button</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The same three toggles are also on the right-click menu of any Salesforce page.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How detection works</h2>
+    <div class="prose">
+      <h3>Lightning Web Components</h3>
+      <p>The extension walks the page — including open shadow roots — and treats any element whose tag name begins with <code>c-</code> as a custom LWC. The label shows the tag name exactly as it appears in the DOM, for example <code>c-contact-card</code>.</p>
+
+      <h3>Aura components</h3>
+      <p>Aura components are identified from their <code>data-aura-class</code>, <code>data-component-id</code> or <code>data-target-selection-name</code> attribute. Only components in the default namespace are matched, so Salesforce's own base components stay unhighlighted.</p>
+      <p>An Aura component that exists purely to wrap an LWC is skipped, so you see the component doing the rendering rather than a stack of nested outlines around the same pixels.</p>
+
+      <h3>Visibility</h3>
+      <p>Elements with no rendered size — <code>display: none</code>, collapsed containers, inactive tabs — are skipped, and outlines disappear on their own when a component is hidden or removed.</p>
+
+      <div class="note">
+        <strong>Known limitation:</strong> components inside a <em>closed</em> shadow root cannot be read by any extension, and components in a namespaced or managed-package org are not detected yet — broader namespace support is the next feature on the <a href="index.html#roadmap">roadmap</a>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Where it runs</h2>
+    <p class="lead">The extension activates only on Salesforce domains.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Domain</th><th>Covers</th></tr></thead>
+        <tbody>
+          <tr><td><code>*.force.com</code></td><td class="wrap-cell">Lightning Experience, Visualforce, Sites, sandboxes, scratch orgs</td></tr>
+          <tr><td><code>*.salesforce.com</code></td><td class="wrap-cell">Classic, My Domain orgs, sandboxes</td></tr>
+          <tr><td><code>*.salesforce-setup.com</code></td><td class="wrap-cell">Setup with enhanced domains</td></tr>
+          <tr><td><code>*.my.site.com</code></td><td class="wrap-cell">Experience Cloud sites</td></tr>
+          <tr><td><code>*.salesforce-experience.com</code></td><td class="wrap-cell">Experience Cloud with enhanced domains</td></tr>
+          <tr><td><code>*.salesforce-sites.com</code></td><td class="wrap-cell">Public Salesforce Sites</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note prose">
+      <strong>On a custom (vanity) domain?</strong> Experience Cloud sites served from your own domain aren't on the list above, because the extension deliberately does not request access to every website. Grant access for that one origin from the extension's details page in <code>chrome://extensions</code> — set <em>Site access</em> to <em>On specific sites</em> and add your domain.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Troubleshooting</h2>
+    <div class="prose">
+      <h3>The popup says the page isn't Salesforce</h3>
+      <p>Either the tab is on a domain outside the list above (see the vanity-domain note), or the page hadn't finished loading. Reload and try again.</p>
+
+      <h3>Nothing gets highlighted</h3>
+      <p>The page may genuinely have no custom components — many standard Salesforce screens are built entirely from base components, which are not highlighted by design. If your org uses a namespace, detection isn't supported yet.</p>
+
+      <h3>Highlights vanished after switching subtabs</h3>
+      <p>They should reapply within a fraction of a second. If they don't, toggle the layer off and on, and please <a href="feedback.html">report it</a> with the page type.</p>
+
+      <h3>Outlines are slightly offset</h3>
+      <p>Overlays track element positions on scroll, resize and DOM changes. A component animating its own position can lag by a frame. Report a case that stays misaligned.</p>
+
+      <h3>I changed a shortcut and it stopped working</h3>
+      <p>Chrome silently drops a shortcut that collides with another extension or a browser default. Check <code>chrome://extensions/shortcuts</code>.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Built by <a href="https://in.linkedin.com/in/nikhil-kumar-033b471b2" target="_blank" rel="noopener">Nikhil Kumar</a></span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="privacy-policy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+# This repo is PUBLIC (GitHub Pages). It must contain website files only.
+# The extension source and signing key must never be committed here.
+
+*.pem
+*.crx
+*.zip
+manifest.json
+foreground.js
+service-worker.js
+popup/
+icons/logo*
+
+.DS_Store
+Thumbs.db

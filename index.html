@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salesforce Component Highlighter — Highlight LWC &amp; Aura components</title>
+<meta name="description" content="A free Chrome extension that highlights Lightning Web Components and Aura components directly on Salesforce pages. Inspect, debug and document Lightning, Experience Cloud and Classic UI.">
+<link rel="canonical" href="https://colt255programmer.github.io/salesforce-component-highlighter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Salesforce Component Highlighter — Highlight LWC &amp; Aura components">
+<meta property="og:description" content="Free Chrome extension. Highlight LWC and Aura component boundaries on any Salesforce page — no setup, no data collection.">
+<meta property="og:url" content="https://colt255programmer.github.io/salesforce-component-highlighter/">
+<meta property="og:image" content="https://colt255programmer.github.io/salesforce-component-highlighter/assets/lockup-128.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/mark-128.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/mark-48.png">
+<link rel="apple-touch-icon" href="assets/mark-128.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/mark-48.png" alt="" width="26" height="26"> Salesforce Component Highlighter</a>
+    <nav class="site-nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>See every Salesforce component<br>without opening DevTools</h1>
+    <p class="tagline">
+      A free Chrome extension that outlines Lightning Web Components and Aura components
+      right on the page — so you can tell instantly which component owns which part of the UI.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="https://chromewebstore.google.com/detail/ihcejjlpoaomlkklakoeohdmkbalhbel" target="_blank" rel="noopener">Add to Chrome — free</a>
+      <a class="btn secondary" href="docs.html">Read the docs</a>
+    </div>
+    <p class="meta">Works in Lightning Experience, Experience Cloud and Classic · Production and sandbox · No account, no sign-in, no data collection</p>
+
+    <figure class="hero-art">
+      <svg viewBox="0 0 660 340" role="img" aria-labelledby="art-title art-desc">
+        <title id="art-title">Illustration of component highlighting on a Salesforce page</title>
+        <desc id="art-desc">A simplified page layout in which several regions are outlined with dashed borders and labelled with component API names such as c-contact-card and cQuickActions.</desc>
+
+        <!-- page -->
+        <rect class="art-page" x="0" y="0" width="660" height="340" rx="12"/>
+        <!-- browser chrome -->
+        <rect class="art-chrome" x="0" y="0" width="660" height="26" rx="12"/>
+        <rect class="art-page" x="0" y="20" width="660" height="8"/>
+        <circle class="art-page" cx="16" cy="13" r="3.5"/>
+        <circle class="art-page" cx="28" cy="13" r="3.5"/>
+        <circle class="art-page" cx="40" cy="13" r="3.5"/>
+        <rect class="art-block" x="60" y="8" width="150" height="10" rx="5"/>
+
+        <!-- highlight 1: header region (Aura) -->
+        <rect class="art-block" x="34" y="52" width="240" height="12" rx="6"/>
+        <rect class="art-text"  x="34" y="72" width="150" height="8" rx="4"/>
+        <rect class="art-aura" x="24" y="42" width="612" height="52" rx="6"
+              fill="none" stroke-width="2" stroke-dasharray="6 4"/>
+        <g>
+          <rect class="art-chip-aura" x="24" y="28" width="104" height="15" rx="3"/>
+          <text class="art-chip-label" x="30" y="39">cQuickActions</text>
+        </g>
+
+        <!-- highlight 2: left card (LWC) -->
+        <rect class="art-block" x="34" y="130" width="120" height="10" rx="5"/>
+        <rect class="art-text"  x="34" y="150" width="270" height="7" rx="3.5"/>
+        <rect class="art-text"  x="34" y="164" width="230" height="7" rx="3.5"/>
+        <rect class="art-text"  x="34" y="178" width="250" height="7" rx="3.5"/>
+        <rect class="art-text"  x="34" y="192" width="180" height="7" rx="3.5"/>
+        <rect class="art-lwc" x="24" y="120" width="300" height="92" rx="6"
+              fill="none" stroke-width="2" stroke-dasharray="6 4"/>
+        <g>
+          <rect class="art-chip-lwc" x="24" y="106" width="102" height="15" rx="3"/>
+          <text class="art-chip-label" x="30" y="117">c-contact-card</text>
+        </g>
+
+        <!-- highlight 3: right card (LWC) -->
+        <rect class="art-block" x="356" y="130" width="100" height="10" rx="5"/>
+        <rect class="art-text"  x="356" y="150" width="240" height="7" rx="3.5"/>
+        <rect class="art-text"  x="356" y="164" width="200" height="7" rx="3.5"/>
+        <rect class="art-text"  x="356" y="178" width="220" height="7" rx="3.5"/>
+        <rect class="art-lwc" x="346" y="120" width="290" height="92" rx="6"
+              fill="none" stroke-width="2" stroke-dasharray="6 4"/>
+        <g>
+          <rect class="art-chip-lwc" x="346" y="106" width="96" height="15" rx="3"/>
+          <text class="art-chip-label" x="352" y="117">c-related-list</text>
+        </g>
+
+        <!-- highlight 4: full-width table (LWC) -->
+        <rect class="art-block" x="34" y="248" width="140" height="10" rx="5"/>
+        <rect class="art-text"  x="34" y="268" width="580" height="7" rx="3.5"/>
+        <rect class="art-text"  x="34" y="282" width="580" height="7" rx="3.5"/>
+        <rect class="art-text"  x="34" y="296" width="420" height="7" rx="3.5"/>
+        <rect class="art-lwc" x="24" y="238" width="612" height="80" rx="6"
+              fill="none" stroke-width="2" stroke-dasharray="6 4"/>
+        <g>
+          <rect class="art-chip-lwc" x="24" y="224" width="112" height="15" rx="3"/>
+          <text class="art-chip-label" x="30" y="235">c-invoice-table</text>
+        </g>
+      </svg>
+      <figcaption>Illustration of the highlight layer. Component names appear exactly as they do in your org.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="lead">Toggle a highlight layer over any Salesforce page. Component boundaries and API names become visible, and the page stays fully usable underneath.</p>
+
+    <div class="grid">
+      <div class="card lwc">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="18" height="14" rx="2" stroke-dasharray="3.2 2.4"/>
+            <rect x="3" y="2.5" width="11" height="3.4" rx="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <h3>Highlights LWC</h3>
+        <p>Finds custom Lightning Web Components anywhere on the page, including components nested inside shadow DOM, and labels each one with its tag name.</p>
+      </div>
+      <div class="card aura">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3.2 2.4"/>
+            <path d="M13.2 7 9 12.9h2.7L10.8 17 15 11.1h-2.7z" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <h3>Highlights Aura</h3>
+        <p>Detects custom Aura components and shows their component name. Aura wrappers that only contain an LWC are skipped, so you see the component that actually renders the UI.</p>
+      </div>
+      <div class="card">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3.2 2.4"/>
+            <path d="M9 7.5v8.2l2.2-2.1 1.6 3.6 1.9-.85-1.6-3.6h3z" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <h3>Never blocks the page</h3>
+        <p>Highlights are drawn as a non-interactive overlay layer. Nothing is written into Salesforce's own DOM, and every button and field underneath stays clickable.</p>
+      </div>
+      <div class="card">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/>
+            <path d="M20.7 4.3v4.4h-4.4"/>
+            <rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1" stroke-dasharray="2.4 1.8"/>
+          </svg>
+        </span>
+        <h3>Survives navigation</h3>
+        <p>Lightning swaps the DOM as you move between records, tabs and console subtabs. Highlighting follows along and reapplies itself automatically.</p>
+      </div>
+      <div class="card">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16.8 3.6 20.4 7.2 9.6 18H6v-3.6z"/>
+            <path d="M14.4 6l3.6 3.6"/>
+            <path d="M3.4 21h8.4" stroke-width="2.2"/>
+          </svg>
+        </span>
+        <h3>Your colors</h3>
+        <p>Pick any highlight color for LWC and Aura. Choices sync across your Chrome profile, and existing highlights repaint live.</p>
+      </div>
+      <div class="card">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13.6 2.8H6.8a1.8 1.8 0 0 0-1.8 1.8v14.8a1.8 1.8 0 0 0 1.8 1.8h10.4a1.8 1.8 0 0 0 1.8-1.8V8z"/>
+            <path d="M13.6 2.8V8h5.4"/>
+            <path d="M12 11.8v5.4"/>
+            <path d="M9.6 14.8 12 17.2l2.4-2.4"/>
+          </svg>
+        </span>
+        <h3>Snapshot export</h3>
+        <p>Export a JSON list of every component detected on the current page — handy for documentation, handovers and bug reports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Who it's for</h2>
+    <p class="lead">Anyone who has ever asked "which component is this, and where do I change it?"</p>
+    <ul class="audience">
+      <li><strong>Developers</strong> Find the component behind a rendered element without hunting through the DOM tree.</li>
+      <li><strong>Admins</strong> See how a Lightning page is actually composed before changing it.</li>
+      <li><strong>Architects</strong> Review an unfamiliar org's UI composition at a glance.</li>
+      <li><strong>Consultants</strong> Document what's on a page during a discovery or handover.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Shortcuts</h2>
+    <p class="lead">All shortcuts are remappable at <code>chrome://extensions/shortcuts</code>.</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Default</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Toggle LWC highlights</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></td></tr>
+          <tr><td>Toggle Aura highlights</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></td></tr>
+          <tr><td>Clear all highlights</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd></td></tr>
+          <tr><td>Hover-only labels</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></td></tr>
+          <tr><td>Export snapshot</td><td class="wrap-cell">Unassigned — set your own</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Privacy, in one line</h2>
+    <div class="note prose">
+      <p><strong>The extension reads the page structure and nothing else.</strong> No page content, record data, field values or credentials are collected, stored or transmitted. There is no analytics, no account and no server — your preferences live in your own browser profile.</p>
+      <p style="margin:0">Full details in the <a href="privacy-policy.html">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <h2>What's next</h2>
+    <p class="lead">Planned for the next release — not yet available.</p>
+    <ul class="roadmap">
+      <li>Namespace support, so components in packaged and ISV orgs are detected too</li>
+      <li>A component tree panel with copy-API-name and open-in-Setup actions</li>
+      <li>Markdown and CSV export alongside JSON</li>
+      <li>Optional AI summaries that run on-device, off by default</li>
+      <li>A Microsoft Edge listing</li>
+    </ul>
+    <p style="margin-top:22px">Want something on this list sooner? <a href="feedback.html">Tell me what would help</a>.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Built by <a href="https://in.linkedin.com/in/nikhil-kumar-033b471b2" target="_blank" rel="noopener">Nikhil Kumar</a></span>
+    <nav>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="https://chromewebstore.google.com/detail/ihcejjlpoaomlkklakoeohdmkbalhbel" target="_blank" rel="noopener">Chrome Web Store</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
